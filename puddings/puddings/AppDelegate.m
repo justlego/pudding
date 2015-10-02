@@ -7,17 +7,58 @@
 //
 
 #import "AppDelegate.h"
+#import "DIECenterViewController.h"
+#import "DIELeftViewController.h"
+
+#import "MMDrawerController.h"
 
 @interface AppDelegate ()
 
 @end
 
 @implementation AppDelegate
+{
+    UITabBarController *_mainTabBarCtrl;
+}
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    
+    
+    [self createMainVC];
+    
+    [self createLeftDrawer];
+    
+    
+    
+    
+    [self.window makeKeyAndVisible];
     return YES;
+}
+
+- (void)createMainVC
+{
+    DIECenterViewController *centerVC = [[DIECenterViewController alloc] init];
+    UINavigationController *navCtrl = [[UINavigationController alloc] initWithRootViewController:centerVC];
+    navCtrl.tabBarItem.image = [[UIImage imageNamed:@"global_footer_btn_new_normal"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    navCtrl.tabBarItem.selectedImage = [[UIImage imageNamed:@"global_footer_btn_new_selected"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    
+    _mainTabBarCtrl = [[UITabBarController alloc] init];
+    [[UITabBar appearance]setTintColor:[UIColor orangeColor]];
+    _mainTabBarCtrl.viewControllers = @[navCtrl];
+    
+}
+
+- (void)createLeftDrawer
+{
+    DIELeftViewController *leftVC = [[DIELeftViewController alloc] init];
+    MMDrawerController *mmDrawerCtrl = [[MMDrawerController alloc] initWithCenterViewController:_mainTabBarCtrl leftDrawerViewController:leftVC];
+    
+    mmDrawerCtrl.openDrawerGestureModeMask = MMOpenDrawerGestureModeAll;
+    mmDrawerCtrl.closeDrawerGestureModeMask = MMCloseDrawerGestureModeAll;
+    
+    self.window.rootViewController = mmDrawerCtrl;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
