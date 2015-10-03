@@ -536,6 +536,7 @@
 		18D6E95B1BBEB1DC00B55502 /* web_player_header_btn_play_normal~iphone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18D6E7571BBEB1DC00B55502 /* web_player_header_btn_play_normal~iphone@2x.png */; };
 		18D6E95C1BBEB1DC00B55502 /* web_toolbar_refresh_normal~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 18D6E7581BBEB1DC00B55502 /* web_toolbar_refresh_normal~iphone.png */; };
 		18D6E95D1BBEB1DC00B55502 /* web_toolbar_refresh_normal~iphone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18D6E7591BBEB1DC00B55502 /* web_toolbar_refresh_normal~iphone@2x.png */; };
+		18D6E9611BBFB06000B55502 /* UIImage+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D6E9601BBFB06000B55502 /* UIImage+Additions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1100,6 +1101,8 @@
 		18D6E7571BBEB1DC00B55502 /* web_player_header_btn_play_normal~iphone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "web_player_header_btn_play_normal~iphone@2x.png"; sourceTree = "<group>"; };
 		18D6E7581BBEB1DC00B55502 /* web_toolbar_refresh_normal~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "web_toolbar_refresh_normal~iphone.png"; sourceTree = "<group>"; };
 		18D6E7591BBEB1DC00B55502 /* web_toolbar_refresh_normal~iphone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "web_toolbar_refresh_normal~iphone@2x.png"; sourceTree = "<group>"; };
+		18D6E95F1BBFB06000B55502 /* UIImage+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Additions.h"; sourceTree = "<group>"; };
+		18D6E9601BBFB06000B55502 /* UIImage+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Additions.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1205,6 +1208,7 @@
 		18D6E5461BBEAEAE00B55502 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				18D6E95E1BBFB06000B55502 /* UIImage-Additions */,
 				18D6E5471BBEAEE700B55502 /* MMDrawerController */,
 			);
 			path = Library;
@@ -1747,6 +1751,15 @@
 				18D6E7591BBEB1DC00B55502 /* web_toolbar_refresh_normal~iphone@2x.png */,
 			);
 			path = "布丁动画_图标";
+			sourceTree = "<group>";
+		};
+		18D6E95E1BBFB06000B55502 /* UIImage-Additions */ = {
+			isa = PBXGroup;
+			children = (
+				18D6E95F1BBFB06000B55502 /* UIImage+Additions.h */,
+				18D6E9601BBFB06000B55502 /* UIImage+Additions.m */,
+			);
+			path = "UIImage-Additions";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -2397,6 +2410,7 @@
 				18025A2A1BBBBD0C0085EE66 /* ViewController.m in Sources */,
 				18D6E5511BBEAEE700B55502 /* MMDrawerBarButtonItem.m in Sources */,
 				18D6E5521BBEAEE700B55502 /* MMDrawerController.m in Sources */,
+				18D6E9611BBFB06000B55502 /* UIImage+Additions.m in Sources */,
 				18025A271BBBBD0C0085EE66 /* AppDelegate.m in Sources */,
 				18D6E5531BBEAEE700B55502 /* MMDrawerVisualState.m in Sources */,
 				18D6E5451BBEAC2100B55502 /* DIELeftViewController.m in Sources */,

@@ -7,6 +7,9 @@
 //
 
 #import "DIECenterViewController.h"
+#import "UIImage+Additions.h"
+
+#import "UIViewController+MMDrawerController.h"
 
 @interface DIECenterViewController ()
 
@@ -18,7 +21,27 @@
     [super viewDidLoad];
 
     self.view.backgroundColor = [UIColor redColor];
+    
+    
+    [self addLeftDrawerButton];
 }
+
+- (void)addLeftDrawerButton
+{
+    UIImage *leftItemImage;
+    leftItemImage = [UIImage imageWithCGImage:[UIImage imageNamed:@"default_avatar"].CGImage scale:4 orientation:UIImageOrientationUp];
+    leftItemImage = [leftItemImage add_imageWithRoundedBounds];
+    leftItemImage = [leftItemImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:leftItemImage style:UIBarButtonItemStylePlain target:self action:@selector(didLeftDrawerButtonClicked)];
+    
+}
+
+- (void)didLeftDrawerButtonClicked
+{
+    [self.mm_drawerController toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
