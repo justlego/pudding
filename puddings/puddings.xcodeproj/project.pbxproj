@@ -537,6 +537,7 @@
 		18D6E95C1BBEB1DC00B55502 /* web_toolbar_refresh_normal~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 18D6E7581BBEB1DC00B55502 /* web_toolbar_refresh_normal~iphone.png */; };
 		18D6E95D1BBEB1DC00B55502 /* web_toolbar_refresh_normal~iphone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18D6E7591BBEB1DC00B55502 /* web_toolbar_refresh_normal~iphone@2x.png */; };
 		18D6E9611BBFB06000B55502 /* UIImage+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D6E9601BBFB06000B55502 /* UIImage+Additions.m */; };
+		18E4508F1BC3F51400C92BA4 /* DIERightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18E4508E1BC3F51400C92BA4 /* DIERightViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1103,6 +1104,8 @@
 		18D6E7591BBEB1DC00B55502 /* web_toolbar_refresh_normal~iphone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "web_toolbar_refresh_normal~iphone@2x.png"; sourceTree = "<group>"; };
 		18D6E95F1BBFB06000B55502 /* UIImage+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Additions.h"; sourceTree = "<group>"; };
 		18D6E9601BBFB06000B55502 /* UIImage+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Additions.m"; sourceTree = "<group>"; };
+		18E4508D1BC3F51400C92BA4 /* DIERightViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DIERightViewController.h; sourceTree = "<group>"; };
+		18E4508E1BC3F51400C92BA4 /* DIERightViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DIERightViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1133,6 +1136,7 @@
 		18025A161BBBBD0C0085EE66 = {
 			isa = PBXGroup;
 			children = (
+				18D6E9A51BBFC52D00B55502 /* CustomTableView */,
 				18D6E5551BBEB1D800B55502 /* 布丁动画_图标 */,
 				18D6E5461BBEAEAE00B55502 /* Library */,
 				18D6E53F1BBEABF100B55502 /* ViewControllers */,
@@ -1201,6 +1205,8 @@
 				18D6E5411BBEAC0F00B55502 /* DIECenterViewController.m */,
 				18D6E5431BBEAC2100B55502 /* DIELeftViewController.h */,
 				18D6E5441BBEAC2100B55502 /* DIELeftViewController.m */,
+				18E4508D1BC3F51400C92BA4 /* DIERightViewController.h */,
+				18E4508E1BC3F51400C92BA4 /* DIERightViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1760,6 +1766,13 @@
 				18D6E9601BBFB06000B55502 /* UIImage+Additions.m */,
 			);
 			path = "UIImage-Additions";
+			sourceTree = "<group>";
+		};
+		18D6E9A51BBFC52D00B55502 /* CustomTableView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CustomTableView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -2415,6 +2428,7 @@
 				18D6E5531BBEAEE700B55502 /* MMDrawerVisualState.m in Sources */,
 				18D6E5451BBEAC2100B55502 /* DIELeftViewController.m in Sources */,
 				18D6E5541BBEAEE700B55502 /* UIViewController+MMDrawerController.m in Sources */,
+				18E4508F1BC3F51400C92BA4 /* DIERightViewController.m in Sources */,
 				18D6E5421BBEAC0F00B55502 /* DIECenterViewController.m in Sources */,
 				18025A241BBBBD0C0085EE66 /* main.m in Sources */,
 			);

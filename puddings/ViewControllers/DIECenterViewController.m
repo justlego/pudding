@@ -7,6 +7,7 @@
 //
 
 #import "DIECenterViewController.h"
+#import "DIERightViewController.h"
 #import "UIImage+Additions.h"
 
 #import "UIViewController+MMDrawerController.h"
@@ -19,11 +20,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    self.view.backgroundColor = [UIColor redColor];
+    
+    self.view.backgroundColor = [UIColor whiteColor];
     
     
     [self addLeftDrawerButton];
+    [self addRightSearchButton];
 }
 
 - (void)addLeftDrawerButton
@@ -42,6 +44,21 @@
     [self.mm_drawerController toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
 }
 
+- (void)addRightSearchButton
+{
+    UIImage *rightItemImage;
+    rightItemImage = [UIImage imageWithCGImage:[UIImage imageNamed:@"global_header_btn_search_normal"].CGImage scale:1 orientation:UIImageOrientationUp];
+//    rightItemImage = [rightItemImage add_imageWithRoundedBounds];
+    rightItemImage = [rightItemImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:rightItemImage style:UIBarButtonItemStylePlain target:self action:@selector(didSearchBurronClicked)];
+}
+
+- (void)didSearchBurronClicked
+{
+    DIERightViewController *rightVC = [[DIERightViewController alloc] init];
+    [self presentViewController:rightVC animated:YES completion:nil];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
