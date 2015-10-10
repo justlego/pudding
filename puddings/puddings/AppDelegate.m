@@ -41,8 +41,8 @@
 {
     DIECenterViewController *centerVC = [[DIECenterViewController alloc] init];
     UINavigationController *navCtrl = [[UINavigationController alloc] initWithRootViewController:centerVC];
-    navCtrl.tabBarItem.image = [[UIImage imageNamed:@"global_footer_btn_new_normal"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    navCtrl.tabBarItem.selectedImage = [[UIImage imageNamed:@"global_footer_btn_new_selected"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+//    navCtrl.tabBarItem.image = [[UIImage imageNamed:@"global_footer_btn_new_normal"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+//    navCtrl.tabBarItem.selectedImage = [[UIImage imageNamed:@"global_footer_btn_new_selected"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     
     _mainTabBarCtrl = [[UITabBarController alloc] init];
     [[UITabBar appearance]setTintColor:[UIColor orangeColor]];

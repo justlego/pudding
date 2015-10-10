@@ -8,14 +8,15 @@
 
 #import "DIERightViewController.h"
 
-@interface DIERightViewController ()
+
+@interface DIERightViewController ()<UISearchBarDelegate>
 
 @end
 
 @implementation DIERightViewController
 {
     CGSize size;
-    UITextField *_textField;
+    UIButton *_searchButton;
 }
 
 - (void)viewDidLoad {
@@ -24,35 +25,42 @@
     size = self.view.bounds.size;
 
     [self createHeadLabel];
-    [self createTextField];
-    [self backButton];
+    [self addUISearchBar];
+    [self searchButton];
 }
 
-- (void)createHeadLabel
+
+#pragma mark 设计搜索框
+- (void)addUISearchBar
 {
-    UILabel *headLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, size.width, 64)];
-    headLabel.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:headLabel];
+    UISearchBar *searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(20, 20, size.width-80, 40)];
+    searchBar.barTintColor = [UIColor whiteColor];
+    searchBar.layer.borderWidth = 1.f;
+    searchBar.layer.borderColor = [UIColor colorWithRed:0.5 green:0.5 blue:0.5 alpha:0.9].CGColor;
+    searchBar.layer.cornerRadius = 20.0f;
+    searchBar.layer.masksToBounds = YES;
+    searchBar.placeholder = @"请输入要搜索的词";
+    searchBar.showsCancelButton = NO;
+    [self.view addSubview:searchBar];
+    searchBar.delegate = self;
 }
 
-- (void)createTextField
+
+#pragma mark 设计搜索和取消的button
+- (void)searchButton
 {
-    _textField = [[UITextField alloc] initWithFrame:CGRectMake(10, 25, size.width-70, 34)];
-    _textField.layer.borderColor = [UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:0.9].CGColor;
-    _textField.layer.borderWidth = 0.6f;
-    _textField.layer.cornerRadius = 15.0f;
-    _textField.placeholder = @"      输入搜素关键词";
-    [self.view addSubview:_textField];
+    _searchButton = [UIButton buttonWithType:UIButtonTypeSystem];
+    _searchButton.frame = CGRectMake(size.width-40, 20, 40, 40);
+    [_searchButton setTitleColor:[UIColor colorWithRed:0.5 green:0.5 blue:0.5 alpha:0.9] forState:UIControlStateNormal];
+    [_searchButton setTitle:@"取消" forState:UIControlStateNormal];
+    [_searchButton addTarget:self action:@selector(didBackButtonClicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:_searchButton];
+    
 }
 
-- (void)backButton
+- (void)didSearchButtonClicked
 {
-    UIButton *backButton = [UIButton buttonWithType:UIButtonTypeSystem];
-    backButton.frame = CGRectMake(size.width-50, 29, 40, 24);
-    [backButton setTitleColor:[UIColor colorWithRed:0.8 green:0.8 blue:0.8 alpha:0.6] forState:UIControlStateNormal];
-    [backButton setTitle:@"取消" forState:UIControlStateNormal];
-    [backButton addTarget:self action:@selector(didBackButtonClicked) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:backButton];
+    
 }
 
 - (void)didBackButtonClicked
@@ -60,9 +68,32 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+#pragma mark 增加一个headLabel
+- (void)createHeadLabel
+{
+    UILabel *headLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, size.width, 64)];
+    headLabel.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:headLabel];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+#pragma mark 根据状态不同选择不同的button标题和方法
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    if (searchBar.text.length == 0) {
+        [_searchButton setTitle:@"取消" forState:UIControlStateNormal];
+        [_searchButton removeTarget:nil action:NULL forControlEvents:UIControlEventAllEvents];
+        [_searchButton addTarget:self action:@selector(didBackButtonClicked) forControlEvents:UIControlEventTouchUpInside];
+    }
+    else {
+        [_searchButton setTitle:@"搜索" forState:UIControlStateNormal];
+        [_searchButton removeTarget:nil action:NULL forControlEvents:UIControlEventAllEvents];
+        [_searchButton addTarget:self action:@selector(didSearchButtonClicked) forControlEvents:UIControlEventTouchUpInside];
+    }
 }
 
 /*
